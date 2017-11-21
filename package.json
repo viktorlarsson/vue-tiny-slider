@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/viktorlarsson/vue-tiny-slider/issues"
   },
-  "homepage": "https://github.com/viktorlarsson/vue-tiny-slider#readme"
+  "homepage": "https://github.com/viktorlarsson/vue-tiny-slider#readme",
+  "dependencies": {
+    "tiny-slider": "^2.3.5"
+  }
 }
