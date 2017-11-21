@@ -77,6 +77,6 @@ For more detailed information about the optoins, see the [Tiny-slider documentat
 * Add Custom Events
 * Add Methods
 
-## Contributors
+## Collaborators
 * [Morgan Eklund](https://github.com/rymdkapten)
 * [Viktor Sarström](https://github.com/viktorlarsson)
