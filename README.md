@@ -73,6 +73,7 @@ on-init
 For more detailed information about the optoins, see the [Tiny-slider documentation](https://github.com/ganlanyuan/tiny-slider#options).
 
 ## Todo
+* Add demo link from a fiddle or something similar
 * Better handling of the responsive-settings
 * Add Custom Events
 * Add Methods
