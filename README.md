@@ -21,7 +21,7 @@ new Vue({
 ````
 
 ````html
-<tiny-slider :mouse-drag="true" :loop="false" items="2" :controls-text="['', '']" gutter="20">
+<tiny-slider :mouse-drag="true" :loop="false" items="2" gutter="20">
     <div>Slider item #1</div>
     <div>Slider item #2</div>
     <div>Slider item #3</div>
