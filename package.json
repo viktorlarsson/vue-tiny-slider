@@ -1,10 +1,10 @@
 {
   "name": "vue-tiny-slider",
   "version": "0.1.0",
-  "description": "Vanilla javascript slider for all purposes created by ganlanyuan in Vue. Edit",
+  "description": "Vanilla javascript slider for all purposes created by ganlanyuan in Vue.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --colors --hide-modules"
   },
   "repository": {
     "type": "git",
@@ -12,7 +12,10 @@
   },
   "keywords": [
     "javascript",
-    "vue"
+    "vue",
+    "tiny-slider",
+    "slider",
+    "carousel"
   ],
   "author": "Viktor Sarström & Morgan Eklund",
   "license": "MIT",
@@ -21,6 +24,15 @@
   },
   "homepage": "https://github.com/viktorlarsson/vue-tiny-slider#readme",
   "dependencies": {
-    "tiny-slider": "^2.3.5"
+    "tiny-slider": "^2.3.5",
+    "vue": "^2.5.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "vue-loader": "^13.5.0",
+    "vue-template-compiler": "^2.5.7",
+    "webpack": "^3.8.1"
   }
 }

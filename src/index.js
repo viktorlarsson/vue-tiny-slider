@@ -1,0 +1,1 @@
+export { default as VueTinySlider } from './tiny-slider.vue';
