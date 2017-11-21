@@ -1,0 +1,23 @@
+{
+  "name": "vue-tiny-slider",
+  "version": "0.1.0",
+  "description": "Vanilla javascript slider for all purposes created by ganlanyuan in Vue. Edit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorlarsson/vue-tiny-slider.git"
+  },
+  "keywords": [
+    "javascript",
+    "vue"
+  ],
+  "author": "Viktor Sarström & Morgan Eklund",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viktorlarsson/vue-tiny-slider/issues"
+  },
+  "homepage": "https://github.com/viktorlarsson/vue-tiny-slider#readme"
+}
