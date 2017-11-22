@@ -31,6 +31,17 @@ new Vue({
 </tiny-slider>
 ````
 
+## Styling
+
+SCSS
+````scss
+@import 'tiny-slider/src/tiny-slider';
+````
+
+CDN
+````html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.3.5/tiny-slider.css">
+````
 ## Options
 
 ````
