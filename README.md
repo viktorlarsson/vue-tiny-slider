@@ -44,6 +44,7 @@ CDN
 ````html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.3.5/tiny-slider.css">
 ````
+
 ## Options
 
 ````
@@ -95,3 +96,7 @@ For more detailed information about the optoins, see the [Tiny-slider documentat
 ## Collaborators
 * [Morgan Eklund](https://github.com/rymdkapten)
 * [Viktor Sarström](https://github.com/viktorlarsson)
+
+## License
+
+This project is available under the MIT license.

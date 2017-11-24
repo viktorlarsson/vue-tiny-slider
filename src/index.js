@@ -157,7 +157,7 @@ var VueTinySlider = {
 		}
 	},
 	template: '<div><slot></slot></div>',
-	mounted: function(){
+	mounted: function() {
 		var settings = {
 			container: this.$el,
 			items: this.items,
@@ -197,14 +197,22 @@ var VueTinySlider = {
 			disable: this.disable,
 			onInit: this.onInit
 		}
-
 		removeUndefinedProps(settings);
 
-		this.slider = tns(settings);	
+		this.slider = tns(settings);
+	},
+	beforeDestroy: function() {
+		this.destroy();
 	},
 	methods: {
-		goTo: (value) => {
+		goTo: function(value) {
 			this.slider.goTo(value)
+		},
+		getInfo: function() {
+			this.$emit('getInfo', this.slider.getInfo(), this.slider);
+		},
+		destroy: function(){
+			this.slider.destroy();
 		}
 	}
 };
