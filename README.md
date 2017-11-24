@@ -85,7 +85,15 @@ freezable
 disable
 on-init
 ````
-For more detailed information about the optoins, see the [Tiny-slider documentation](https://github.com/ganlanyuan/tiny-slider#options).
+For more detailed information about the options, see the [Tiny-slider documentation (Options)](https://github.com/ganlanyuan/tiny-slider#options).
+
+## Metods
+
+````getInfo````
+````goTo````
+````destroy````
+
+For more detailed information about the methods, see the [Tiny-slider documentation (Methods)](https://github.com/ganlanyuan/tiny-slider#methods).
 
 ## Todo
 * ~~Add demo link from a fiddle or something similar~~
