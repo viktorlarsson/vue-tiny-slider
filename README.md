@@ -2,6 +2,8 @@
 
 Wrapper for Tiny slider for all purposes by [ganlanyuan](https://github.com/ganlanyuan/tiny-slider) in Vue. [Try it out](https://jsfiddle.net/viktorsarstrom/4ba2cwte/3/)!
 
+Firefox 12+, Chrome 15+, Safari 4+, Opera 12.1+, IE8+
+
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
 ## Install
@@ -46,6 +48,7 @@ CDN
 
 ````
 items
+mode
 gutter
 edge-padding
 fixed-width
@@ -84,7 +87,7 @@ on-init
 For more detailed information about the optoins, see the [Tiny-slider documentation](https://github.com/ganlanyuan/tiny-slider#options).
 
 ## Todo
-* Add demo link from a fiddle or something similar
+* ~~Add demo link from a fiddle or something similar~~
 * Better handling of the responsive-settings
 * Add Custom Events
 * Add Methods
