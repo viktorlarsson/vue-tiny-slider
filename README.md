@@ -99,7 +99,7 @@ For more detailed information about the methods, see the [Tiny-slider documentat
 * ~~Add demo link from a fiddle or something similar~~
 * Better handling of the responsive-settings
 * Add Custom Events
-* Add Methods
+* ~~Add Methods~~
 
 ## Collaborators
 * [Morgan Eklund](https://github.com/rymdkapten)
