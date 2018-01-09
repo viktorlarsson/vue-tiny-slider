@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/viktorlarsson/vue-tiny-slider#readme",
   "dependencies": {
-    "tiny-slider": "^2.3.7"
+    "tiny-slider": "^2.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
