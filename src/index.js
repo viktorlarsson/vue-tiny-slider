@@ -38,7 +38,7 @@ var VueTinySlider = {
 			default: () => ['prev', 'next']
 		},
 		controlsContainer: {
-			type: [Boolean, Node],
+			type: [Boolean, Node, String],
 			default: false
 		},
 		nav: {
@@ -46,7 +46,7 @@ var VueTinySlider = {
 			default: false
 		},
 		navContainer: {
-			type: [Boolean, Node],
+			type: [Boolean, Node, String],
 			default: false
 		},
 		arrowKeys: {
