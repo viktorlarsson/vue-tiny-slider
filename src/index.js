@@ -158,48 +158,7 @@ var VueTinySlider = {
 	},
 	template: '<div><slot></slot></div>',
 	mounted: function() {
-		var settings = {
-			container: this.$el,
-			items: this.items,
-			mode: this.mode,
-			gutter: this.gutter,
-			edgePadding: this.edgePadding,
-			fixedWidth: !this.fixedWidth ? this.fixedWidth : parseInt(this.fixedWidth, 10),
-			slideBy: this.slideBy,
-			controls: this.controls,
-			controlsText: this.controlsText,
-			controlsContainer: this.controlsContainer,
-			nav: this.nav,
-			navContainer: this.navContainer,
-			arrowKeys: this.arrowKeys,
-			speed: this.speed,
-			autoplay: this.autoplay,
-			autoplayTimeout: this.autoplayTimeout,
-			autoplayDirection: this.autoplayDirection,
-			autoplayText: this.autoplayText,
-			autoplayHoverPause: this.autoplayHoverPause,
-			autoplayButton: this.autoplayButton,
-			autoplayButtonOutput: this.autoplayButtonOutput,
-			autoplayResetOnVisibility: this.autoplayResetOnVisibility,
-			animateIn: this.animateIn,
-			animateOut: this.animateOut,
-			animateNormal: this.animateNormal,
-			animateDelay: this.animateDelay,
-			loop: this.loop,
-			rewind: this.rewind,
-			autoHeight: this.autoHeight,
-			responsive: this.responsive,
-			lazyload: this.lazyload,
-			touch: this.touch,
-			mouseDrag: this.mouseDrag,
-			nested: this.nested,
-			freezable: this.freezable,
-			disable: this.disable,
-			onInit: this.onInit
-		}
-		removeUndefinedProps(settings);
-
-		this.slider = tns(settings);
+		this.init();
 	},
 	beforeDestroy: function() {
 		this.destroy();
@@ -211,9 +170,53 @@ var VueTinySlider = {
 		getInfo: function() {
 			this.$emit('getInfo', this.slider.getInfo(), this.slider);
 		},
-		destroy: function(){
+		destroy: function() {
 			this.slider.destroy();
-		}
+		},
+		init: function() {
+			var settings = {
+				container: this.$el,
+				items: this.items,
+				mode: this.mode,
+				gutter: this.gutter,
+				edgePadding: this.edgePadding,
+				fixedWidth: !this.fixedWidth ? this.fixedWidth : parseInt(this.fixedWidth, 10),
+				slideBy: this.slideBy,
+				controls: this.controls,
+				controlsText: this.controlsText,
+				controlsContainer: this.controlsContainer,
+				nav: this.nav,
+				navContainer: this.navContainer,
+				arrowKeys: this.arrowKeys,
+				speed: this.speed,
+				autoplay: this.autoplay,
+				autoplayTimeout: this.autoplayTimeout,
+				autoplayDirection: this.autoplayDirection,
+				autoplayText: this.autoplayText,
+				autoplayHoverPause: this.autoplayHoverPause,
+				autoplayButton: this.autoplayButton,
+				autoplayButtonOutput: this.autoplayButtonOutput,
+				autoplayResetOnVisibility: this.autoplayResetOnVisibility,
+				animateIn: this.animateIn,
+				animateOut: this.animateOut,
+				animateNormal: this.animateNormal,
+				animateDelay: this.animateDelay,
+				loop: this.loop,
+				rewind: this.rewind,
+				autoHeight: this.autoHeight,
+				responsive: this.responsive,
+				lazyload: this.lazyload,
+				touch: this.touch,
+				mouseDrag: this.mouseDrag,
+				nested: this.nested,
+				freezable: this.freezable,
+				disable: this.disable,
+				onInit: this.onInit
+			}
+			removeUndefinedProps(settings);
+	
+			this.slider = tns(settings);
+		},
 	}
 };
 
