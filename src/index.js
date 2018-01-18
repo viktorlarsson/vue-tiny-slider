@@ -156,7 +156,6 @@ var VueTinySlider = {
 			default: false
 		}
 	},
-	template: '<div><slot></slot></div>',
 	mounted: function() {
 		this.init();
 	},
@@ -217,6 +216,9 @@ var VueTinySlider = {
 	
 			this.slider = tns(settings);
 		},
+	},
+	render: function(h){
+		return h('div', this.$slots.default)
 	}
 };
 
