@@ -8,9 +8,9 @@ var VueTinySlider = {
 			validator: value => {
 				return value === 'horizontal' || value === 'vertical';
 			}
-		},	
+		},
 		items: {
-			type:  [String, Number],
+			type:  [Number],
 			default: 1
 		},
 		gutter: {
@@ -175,6 +175,7 @@ var VueTinySlider = {
 		init: function() {
 			var settings = {
 				container: this.$el,
+				axis: this.axis,
 				items: this.items,
 				mode: this.mode,
 				gutter: this.gutter,
@@ -213,7 +214,7 @@ var VueTinySlider = {
 				onInit: this.onInit
 			}
 			removeUndefinedProps(settings);
-	
+
 			this.slider = tns(settings);
 		},
 	},
@@ -229,5 +230,5 @@ function removeUndefinedProps(obj) {
 		}
 	}
 }
-  
+
 module.exports = VueTinySlider;
