@@ -8,9 +8,9 @@ var VueTinySlider = {
 			validator: value => {
 				return value === 'horizontal' || value === 'vertical';
 			}
-		},	
+		},
 		items: {
-			type:  [String, Number],
+			type:  [Number],
 			default: 1
 		},
 		gutter: {
@@ -230,5 +230,5 @@ function removeUndefinedProps(obj) {
 		}
 	}
 }
-  
+
 module.exports = VueTinySlider;
