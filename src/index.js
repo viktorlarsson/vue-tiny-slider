@@ -176,7 +176,7 @@ var VueTinySlider = {
 			var settings = {
 				container: this.$el,
 				axis: this.axis,
-				items: this.items,
+				items: parseInt(this.items),
 				mode: this.mode,
 				gutter: this.gutter,
 				edgePadding: this.edgePadding,
