@@ -164,7 +164,10 @@ var VueTinySlider = {
 	},
 	methods: {
 		goTo: function(value) {
-			this.slider.goTo(value)
+			this.slider.goTo(value);
+		},
+		rebuild: function() {
+			this.slider.rebuild();
 		},
 		getInfo: function() {
 			this.$emit('getInfo', this.slider.getInfo(), this.slider);
