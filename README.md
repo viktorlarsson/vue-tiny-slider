@@ -48,6 +48,7 @@ CDN
 ## Options
 
 ````
+auto-init
 items
 mode
 gutter
