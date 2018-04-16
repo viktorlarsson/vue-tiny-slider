@@ -3,6 +3,10 @@ import { tns } from 'tiny-slider/src/tiny-slider';
 var VueTinySlider = {
 	props: {
 		mode: [String],
+		autoInit: {
+			type:  [Boolean],
+			default: true
+		},
 		axis: {
 			type: [String],
 			validator: value => {
@@ -157,7 +161,9 @@ var VueTinySlider = {
 		}
 	},
 	mounted: function() {
-		this.init();
+		if(this.autoInit) {
+			this.init();
+		}
 	},
 	beforeDestroy: function() {
 		this.destroy();
@@ -167,7 +173,7 @@ var VueTinySlider = {
 			this.slider.goTo(value);
 		},
 		rebuild: function() {
-			this.slider.rebuild();
+			this.slider = this.slider.rebuild();
 		},
 		getInfo: function() {
 			this.$emit('getInfo', this.slider.getInfo(), this.slider);
@@ -217,7 +223,7 @@ var VueTinySlider = {
 				onInit: this.onInit
 			}
 			removeUndefinedProps(settings);
-
+			
 			this.slider = tns(settings);
 		},
 	},

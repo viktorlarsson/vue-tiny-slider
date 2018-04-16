@@ -4,8 +4,8 @@
   "description": "Vanilla javascript slider for all purposes created by ganlanyuan in Vue.",
   "main": "./dist/index.js",
   "scripts": {
-    "watch": "webpack --watch --colors --hide-modules",
-    "build": "webpack --colors --hide-modules"
+    "watch": "webpack --watch --colors --hide-modules --mode development",
+    "build": "webpack --colors --hide-modules --mode production"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,6 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
-    "webpack": "^3.8.1"
+    "webpack": "^4.5.0"
   }
 }

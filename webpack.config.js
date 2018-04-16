@@ -15,7 +15,7 @@ module.exports = {
 		extensions: ['.js', '.vue']
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				loader: 'babel-loader',
@@ -29,17 +29,5 @@ module.exports = {
 				exclude: /node_modules/
 			}
 		]
-	},
-	plugins: [
-		new webpack.LoaderOptionsPlugin({
-			minimize: true
-		}),
-		new webpack.optimize.UglifyJsPlugin({
-			beautify: false,
-			comments: false,
-			compress: {
-				warnings: false
-			}
-		})
-	]
+	}
 }
