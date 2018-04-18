@@ -29,6 +29,10 @@ var VueTinySlider = {
 			type:  [String, Boolean, Number],
 			default: false
 		},
+		swipeAngle: {
+			type:  [Boolean, Number],
+			default: 15
+		},
 		slideBy: {
 			type:  [String, Number],
 			default: 1
@@ -223,7 +227,7 @@ var VueTinySlider = {
 				onInit: this.onInit
 			}
 			removeUndefinedProps(settings);
-			
+
 			this.slider = tns(settings);
 		},
 	},
