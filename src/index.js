@@ -224,7 +224,8 @@ var VueTinySlider = {
 				nested: this.nested,
 				freezable: this.freezable,
 				disable: this.disable,
-				onInit: this.onInit
+				onInit: this.onInit,
+				swipeAngle: this.swipeAngle,
 			}
 			removeUndefinedProps(settings);
 
