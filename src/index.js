@@ -170,7 +170,9 @@ var VueTinySlider = {
 		}
 	},
 	beforeDestroy: function() {
-		this.destroy();
+		if(this.slider) {
+			this.slider.destroy();
+		}
 	},
 	methods: {
 		goTo: function(value) {
@@ -230,6 +232,7 @@ var VueTinySlider = {
 			removeUndefinedProps(settings);
 
 			this.slider = tns(settings);
+			
 		},
 	},
 	render: function(h){
