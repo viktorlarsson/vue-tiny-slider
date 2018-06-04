@@ -94,6 +94,27 @@ For more detailed information about the options, see the [Tiny-slider documentat
 ````goTo````
 ````destroy````
 
+### How to use the methods
+
+To be able to use the methods, you need to use ref on the component. Ref is used to register a reference to an element or a child component. 
+
+```
+<vue-tiny-slider ref="tinySlider"></vue-tiny-slider>
+```
+
+```
+import VueTinySlider from 'vue-tiny-slider';
+
+export default {
+  ...,
+    methods: {
+        getInfo: function(event) {
+             this.$refs.tinySlider.slider.getInfo();
+        }
+     }
+}
+```
+
 For more detailed information about the methods, see the [Tiny-slider documentation (Methods)](https://github.com/ganlanyuan/tiny-slider#methods).
 
 ## Todo
