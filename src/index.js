@@ -159,6 +159,10 @@ var VueTinySlider = {
 			type: [Boolean],
 			default: false
 		},
+		startIndex: {
+			type: [Number],
+			default: 0
+		},
 		onInit: {
 			type: [Function, Boolean],
 			default: false
@@ -228,6 +232,7 @@ var VueTinySlider = {
 				disable: this.disable,
 				onInit: this.onInit,
 				swipeAngle: this.swipeAngle,
+				startIndex: this.startIndex
 			}
 			removeUndefinedProps(settings);
 
