@@ -12,7 +12,7 @@ var VueTinySlider = {
 			validator: value => {
 				return value === 'horizontal' || value === 'vertical';
 			}
-		},	
+		},
 		items: {
 			type:  [String, Number],
 			default: 1
@@ -237,7 +237,7 @@ var VueTinySlider = {
 			removeUndefinedProps(settings);
 
 			this.slider = tns(settings);
-			
+
 		},
 	},
 	render: function(h){
@@ -252,5 +252,5 @@ function removeUndefinedProps(obj) {
 		}
 	}
 }
-  
+
 module.exports = VueTinySlider;
