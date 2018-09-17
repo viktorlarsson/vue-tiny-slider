@@ -238,6 +238,49 @@ var VueTinySlider = {
 
 			this.slider = tns(settings);
 
+			this.slider.events.on('indexChanged', (info) => {
+				this.$emit('indexChanged', info);
+			})
+
+			this.slider.events.on('transitionStart', (info) => {
+				this.$emit('transitionStart', info);
+			})
+
+			this.slider.events.on('transitionEnd', (info) => {
+				this.$emit('transitionEnd', info);
+			})
+
+			this.slider.events.on('newBreakpointStart', (info) => {
+				this.$emit('newBreakpointStart', info);
+			})
+
+			this.slider.events.on('newBreakpointEnd', (info) => {
+				this.$emit('newBreakpointEnd', info);
+			})
+
+			this.slider.events.on('touchStart', (info) => {
+				this.$emit('touchStart', info);
+			})
+
+			this.slider.events.on('touchMove', (info) => {
+				this.$emit('touchMove', info);
+			})
+
+			this.slider.events.on('touchEnd', (info) => {
+				this.$emit('touchEnd', info);
+			})
+
+			this.slider.events.on('dragStart', (info) => {
+				this.$emit('dragStart', info);
+			})
+
+			this.slider.events.on('dragMove', (info) => {
+				this.$emit('dragMove', info);
+			})
+
+			this.slider.events.on('dragEnd', (info) => {
+				this.$emit('dragEnd', info);
+			})
 		},
 	},
 	render: function(h){
