@@ -205,6 +205,7 @@ var VueTinySlider = {
 		},
 		rebuild: function() {
 			this.slider = this.slider.rebuild();
+			this.$emit('rebuild');
 		},
 		getInfo: function() {
 			this.$emit('getInfo', this.slider.getInfo(), this.slider);
