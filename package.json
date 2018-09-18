@@ -24,7 +24,9 @@
     "url": "https://github.com/viktorlarsson/vue-tiny-slider/issues"
   },
   "homepage": "https://github.com/viktorlarsson/vue-tiny-slider#readme",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
