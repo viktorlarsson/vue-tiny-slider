@@ -1,6 +1,19 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 
 var VueTinySlider = {
+	eventsList: [
+		'indexChanged',
+		'transitionStart',
+		'transitionEnd',
+		'newBreakpointStart',
+		'newBreakpointEnd',
+		'touchStart',
+		'touchMove',
+		'touchEnd',
+		'dragStart',
+		'dragMove',
+		'dragEnd'
+	],
 	props: {
 		mode: [String],
 		autoInit: {
@@ -179,11 +192,20 @@ var VueTinySlider = {
 		}
 	},
 	methods: {
+		$_vueTinySlider_subscribeTo (eventName) {
+			this.slider.events.on(eventName, (info) => {
+				this.$emit(eventName, info);
+			});
+		},
+		$_vueTinySlider_subscribeToAll () {
+			this.$options.eventsList.forEach(this.$_vueTinySlider_subscribeTo)
+		},
 		goTo: function(value) {
 			this.slider.goTo(value);
 		},
 		rebuild: function() {
 			this.slider = this.slider.rebuild();
+			this.$emit('rebuild');
 		},
 		getInfo: function() {
 			this.$emit('getInfo', this.slider.getInfo(), this.slider);
@@ -238,10 +260,14 @@ var VueTinySlider = {
 
 			this.slider = tns(settings);
 
+			// Emit init event
+			this.$emit('init');
+			// Subscribe to all kind of tiny-slider events
+			this.$_vueTinySlider_subscribeToAll();
 		},
 	},
 	render: function(h){
-		return h('div', this.$slots.default)
+		return h('div', this.$slots.default);
 	}
 };
 
