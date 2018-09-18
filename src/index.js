@@ -214,7 +214,7 @@ var VueTinySlider = {
 		},
 		init: function() {
 			var settings = {
-				container: this.$el.firstElementChild ,
+				container: this.$el,
 				axis: this.axis,
 				items: parseInt(this.items),
 				mode: this.mode,
@@ -266,7 +266,7 @@ var VueTinySlider = {
 		},
 	},
 	render: function(h){
-		return h('div', [h('div', this.$slots.default)]);
+		return h('div', this.$slots.default);
 	}
 };
 
