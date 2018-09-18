@@ -1,6 +1,19 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 
 var VueTinySlider = {
+	eventsList: [
+		'indexChanged',
+		'transitionStart',
+		'transitionEnd',
+		'newBreakpointStart',
+		'newBreakpointEnd',
+		'touchStart',
+		'touchMove',
+		'touchEnd',
+		'dragStart',
+		'dragMove',
+		'dragEnd'
+	],
 	props: {
 		mode: [String],
 		autoInit: {
@@ -179,6 +192,14 @@ var VueTinySlider = {
 		}
 	},
 	methods: {
+		$_vueTinySlider_subscribeTo (eventName) {
+			this.slider.events.on(eventName, (info) => {
+				this.$emit(eventName, info);
+			});
+		},
+		$_vueTinySlider_subscribeToAll () {
+			this.$options.eventsList.forEach(this.$_vueTinySlider_subscribeTo)
+		},
 		goTo: function(value) {
 			this.slider.goTo(value);
 		},
@@ -193,7 +214,7 @@ var VueTinySlider = {
 		},
 		init: function() {
 			var settings = {
-				container: this.$el,
+				container: this.$el.firstElementChild ,
 				axis: this.axis,
 				items: parseInt(this.items),
 				mode: this.mode,
@@ -238,53 +259,14 @@ var VueTinySlider = {
 
 			this.slider = tns(settings);
 
-			this.slider.events.on('indexChanged', (info) => {
-				this.$emit('indexChanged', info);
-			})
-
-			this.slider.events.on('transitionStart', (info) => {
-				this.$emit('transitionStart', info);
-			})
-
-			this.slider.events.on('transitionEnd', (info) => {
-				this.$emit('transitionEnd', info);
-			})
-
-			this.slider.events.on('newBreakpointStart', (info) => {
-				this.$emit('newBreakpointStart', info);
-			})
-
-			this.slider.events.on('newBreakpointEnd', (info) => {
-				this.$emit('newBreakpointEnd', info);
-			})
-
-			this.slider.events.on('touchStart', (info) => {
-				this.$emit('touchStart', info);
-			})
-
-			this.slider.events.on('touchMove', (info) => {
-				this.$emit('touchMove', info);
-			})
-
-			this.slider.events.on('touchEnd', (info) => {
-				this.$emit('touchEnd', info);
-			})
-
-			this.slider.events.on('dragStart', (info) => {
-				this.$emit('dragStart', info);
-			})
-
-			this.slider.events.on('dragMove', (info) => {
-				this.$emit('dragMove', info);
-			})
-
-			this.slider.events.on('dragEnd', (info) => {
-				this.$emit('dragEnd', info);
-			})
+			// Emit init event
+			this.$emit('init');
+			// Subscribe to all kind of tiny-slider events
+			this.$_vueTinySlider_subscribeToAll();
 		},
 	},
 	render: function(h){
-		return h('div', this.$slots.default)
+		return h('div', [h('div', this.$slots.default)]);
 	}
 };
 
