@@ -25,13 +25,13 @@
   },
   "homepage": "https://github.com/viktorlarsson/vue-tiny-slider#readme",
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "tiny-slider": "^2.8.7"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.24.1",
-    "tiny-slider": "^2.8.6",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
   }
