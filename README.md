@@ -134,3 +134,4 @@ This project is available under the MIT license.
 ## Cheerios <3
 
 * Fixed broken demo link, @VitorLuizC
+* Moved tiny-slider from devDependencies to dependencies, @TitanFighter
