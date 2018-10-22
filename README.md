@@ -130,3 +130,7 @@ For more detailed information about the methods, see the [Tiny-slider documentat
 ## License
 
 This project is available under the MIT license.
+
+## Cheerios <3
+
+* Fixed broken demo link, @VitorLuizC
