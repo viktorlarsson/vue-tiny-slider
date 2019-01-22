@@ -179,7 +179,11 @@ var VueTinySlider = {
 		onInit: {
 			type: [Function, Boolean],
 			default: false
-		}
+		},
+		center: {
+			type: Boolean,
+			default: false
+		},
 	},
 	mounted: function() {
 		if(this.autoInit) {
@@ -254,7 +258,8 @@ var VueTinySlider = {
 				disable: this.disable,
 				onInit: this.onInit,
 				swipeAngle: this.swipeAngle,
-				startIndex: this.startIndex
+				startIndex: this.startIndex,
+				center: this.center,
 			}
 			removeUndefinedProps(settings);
 
