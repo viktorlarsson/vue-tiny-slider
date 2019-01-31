@@ -66,6 +66,10 @@ var VueTinySlider = {
 			type: [Boolean],
 			default: false
 		},
+		navPosition: {
+			type: [String],
+			default: "top"
+		},
 		navContainer: {
 			type: [Boolean, Node, String],
 			default: false
@@ -246,6 +250,7 @@ var VueTinySlider = {
 				controlsText: this.controlsText,
 				controlsContainer: this.controlsContainer,
 				nav: this.nav,
+				navPosition: this.navPosition,
 				navContainer: this.navContainer,
 				arrowKeys: this.arrowKeys,
 				speed: this.speed,
