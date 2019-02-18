@@ -85,7 +85,12 @@ nested
 freezable
 disable
 on-init
+center
+lazy-load-selector
+prevent-action-when-running
+prevent-scroll-on-touch
 ````
+
 For more detailed information about the options, see the [Tiny-slider documentation (Options)](https://github.com/ganlanyuan/tiny-slider#options).
 
 ## Methods
@@ -96,7 +101,7 @@ For more detailed information about the options, see the [Tiny-slider documentat
 
 ### How to use the methods
 
-To be able to use the methods, you need to use ref on the component. Ref is used to register a reference to an element or a child component. 
+To be able to use the methods, you need to use ref on the component. Ref is used to register a reference to an element or a child component.
 
 ```
 <vue-tiny-slider ref="tinySlider"></vue-tiny-slider>
