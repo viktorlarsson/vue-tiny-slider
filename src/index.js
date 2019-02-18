@@ -17,7 +17,7 @@ var VueTinySlider = {
 	props: {
 		mode: [String],
 		autoInit: {
-			type:  [Boolean],
+			type: [Boolean],
 			default: true
 		},
 		axis: {
@@ -27,35 +27,35 @@ var VueTinySlider = {
 			}
 		},
 		items: {
-			type:  [String, Number],
+			type: [String, Number],
 			default: 1
 		},
 		gutter: {
-			type:  [String, Number],
+			type: [String, Number],
 			default: 0
 		},
 		edgePadding: {
-			type:  [String, Number],
+			type: [String, Number],
 			default: 0
 		},
 		fixedWidth: {
-			type:  [String, Boolean, Number],
+			type: [String, Boolean, Number],
 			default: false
 		},
 		swipeAngle: {
-			type:  [Boolean, Number],
+			type: [Boolean, Number],
 			default: 15
 		},
 		slideBy: {
-			type:  [String, Number],
+			type: [String, Number],
 			default: 1
 		},
 		controls: {
-			type:  [String, Boolean],
+			type: [String, Boolean],
 			default: true
 		},
 		controlsText: {
-			type:  [Array],
+			type: [Array],
 			default: () => ['prev', 'next']
 		},
 		controlsContainer: {
@@ -179,9 +179,28 @@ var VueTinySlider = {
 		onInit: {
 			type: [Function, Boolean],
 			default: false
+		},
+		center: {
+			type: Boolean,
+			default: false
+		},
+		lazyLoadSelector: {
+			type: String,
+			default: '.tns-lazy-img'
+		},
+		preventActionWhenRunning: {
+			type: Boolean,
+			default: false
+		},
+		preventScrollOnTouch: {
+			type: [String, Boolean],
+			default: false,
+			validator: value => {
+				return value === 'auto' || value === 'force' || value === false;
+			}
 		}
 	},
-	mounted: function() {
+	mounted: function () {
 		if(this.autoInit) {
 			this.init();
 		}
@@ -254,7 +273,11 @@ var VueTinySlider = {
 				disable: this.disable,
 				onInit: this.onInit,
 				swipeAngle: this.swipeAngle,
-				startIndex: this.startIndex
+				startIndex: this.startIndex,
+				center: this.center,
+				lazyLoadSelector: this.lazyLoadSelector,
+				preventActionWhenRunning: this.preventActionWhenRunning,
+				preventScrollOnTouch: this.preventScrollOnTouch
 			}
 			removeUndefinedProps(settings);
 
