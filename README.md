@@ -6,6 +6,19 @@ Firefox 12+, Chrome 15+, Safari 4+, Opera 12.1+, IE8+
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
+## Table of Contents
+  * [Install](#install)
+  * [Use](#use)
+  * [Styling](#styling)
+  * [Options](#options)
+  * [Methods](#methods)
+      * [How to use the methods](#how-to-use-the-methods)
+  * [NuxtJS SSR](#nuxtjs-ssr)
+  * [Todos](#todo)
+  * [Collaborators](#collaborators)
+  * [License](#license)
+  * [Cheerios &lt;3](#cheerios-3)
+
 ## Install
 
 `npm install vue-tiny-slider`
