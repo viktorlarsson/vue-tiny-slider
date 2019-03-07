@@ -180,3 +180,4 @@ This project is available under the MIT license.
 * Fixed broken demo link, @VitorLuizC
 * Moved tiny-slider from devDependencies to dependencies, @TitanFighter
 * Added nav position to props, @Irsanarisandy
+* Got it to work with NuxtJS SSR, @ilbonte
