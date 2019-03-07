@@ -161,17 +161,19 @@ Vue.use(VueTinySlider)
 Now you should be able to use it in any component **without** any import, like this:
 
 ```js
-<VueTinySlider v-bind="tinySliderOptions">
-      <div>#1</div>
-      <div>#2</div>
-      <div>#3</div>
-      <div>#4</div>
-      <div>#5</div>
-      <div>#6</div>
-    </vue-tiny-slide>
+<no-ssr>
+ <vue-tiny-slider v-bind="tinySliderOptions">
+       <div>#1</div>
+       <div>#2</div>
+       <div>#3</div>
+       <div>#4</div>
+       <div>#5</div>
+       <div>#6</div>
+     </vue-tiny-slide>
+</no-ssr>
 ```
 
-A demo is available here: (https://codesandbox.io/s/jvjp349449)[https://codesandbox.io/s/jvjp349449].
+A demo is available here: [https://codesandbox.io/s/jvjp349449](https://codesandbox.io/s/jvjp349449).
 
 
 ## Todo
