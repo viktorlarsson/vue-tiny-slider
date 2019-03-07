@@ -89,6 +89,7 @@ center
 lazy-load-selector
 prevent-action-when-running
 prevent-scroll-on-touch
+nav-options
 ````
 
 For more detailed information about the options, see the [Tiny-slider documentation (Options)](https://github.com/ganlanyuan/tiny-slider#options).
