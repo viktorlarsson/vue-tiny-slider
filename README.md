@@ -162,7 +162,7 @@ Now you should be able to use it in any component **without** any import, like t
 
 ```js
 <no-ssr>
- <VueTinySlider v-bind="tinySliderOptions">
+ <vue-tiny-slider v-bind="tinySliderOptions">
        <div>#1</div>
        <div>#2</div>
        <div>#3</div>
