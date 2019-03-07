@@ -143,7 +143,6 @@ For more detailed information about the methods, see the [Tiny-slider documentat
 2. In `nuxt.config.js` add 
 ``` js 
 plugins: [{ src: '~/plugins/vue-tiny-slider.js', ssr: false }],
-build: { vendor: ['vue-tiny-slider']}
 ```
 
 3. Create the file `plugins/vue-tiny-slider.js` with this content
@@ -153,18 +152,16 @@ import Vue from 'vue'
 import vTinySlider from 'vue-tiny-slider'
 const VueTinySlider = {
   install(Vue, options) {
-    Vue.component('vue-tiny-slider', vTinySlider)
+    Vue.component('VueTinySlider', vTinySlider)
   }
 }
 Vue.use(VueTinySlider)
-export default VueTinySlider
-
 ```
 
 Now you should be able to use it in any component **without** any import, like this:
 
 ```js
-<vue-tiny-slide v-bind="tinySliderOptions">
+<VueTinySlider v-bind="tinySliderOptions">
       <div>#1</div>
       <div>#2</div>
       <div>#3</div>
