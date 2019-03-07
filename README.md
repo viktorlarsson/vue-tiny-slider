@@ -123,6 +123,44 @@ export default {
 
 For more detailed information about the methods, see the [Tiny-slider documentation (Methods)](https://github.com/ganlanyuan/tiny-slider#methods).
 
+## NuxtJS SSR
+
+1. `yarn add vue-tiny-slider`
+2. in `nuxt.config.js` add 
+``` js 
+plugins: [{ src: '~/plugins/vue-tiny-slider.js', ssr: false }],
+build: { vendor: ['vue-tiny-slider']}
+```
+3. create the file `plugins/vue-tiny-slider.js` with this content
+```js
+import Vue from 'vue'
+import vTinySlider from 'vue-tiny-slider'
+const VueTinySlider = {
+  install(Vue, options) {
+    Vue.component('vue-tiny-slider', vTinySlider)
+  }
+}
+Vue.use(VueTinySlider)
+export default VueTinySlider
+
+```
+
+Now you should be able to use it in any component **without** any import, like this:
+
+```js
+<vue-tiny-slide v-bind="tinySliderOptions">
+      <div>#1</div>
+      <div>#2</div>
+      <div>#3</div>
+      <div>#4</div>
+      <div>#5</div>
+      <div>#6</div>
+    </vue-tiny-slide>
+```
+
+I've setted up a demo: https://codesandbox.io/s/jvjp349449
+
+
 ## Todo
 * ~~Add demo link from a fiddle or something similar~~
 * Better handling of the responsive-settings
