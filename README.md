@@ -4,7 +4,8 @@ Wrapper for Tiny slider for all purposes by [ganlanyuan](https://github.com/ganl
 
 Firefox 12+, Chrome 15+, Safari 4+, Opera 12.1+, IE8+
 
-[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges) [![downloads](https://img.shields.io/npm/dt/vue-tiny-slider.svg)](https://github.com/badges/shields/) [![downloads per week](https://img.shields.io/npm/dw/vue-tiny-slider.svg)](https://github.com/badges/shields/) 
+
 
 ## Table of Contents
   * [Install](#install)
