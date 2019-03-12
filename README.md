@@ -6,8 +6,6 @@ Firefox 12+, Chrome 15+, Safari 4+, Opera 12.1+, IE8+
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges) [![downloads](https://img.shields.io/npm/dt/vue-tiny-slider.svg)](https://github.com/badges/shields/) [![downloads per week](https://img.shields.io/npm/dw/vue-tiny-slider.svg)](https://github.com/badges/shields/) [![version badge](https://img.shields.io/npm/v/vue-tiny-slider.svg)](https://github.com/badges/shields/) 
 
-
-
 ## Table of Contents
   * [Install](#install)
   * [Use](#use)
@@ -105,6 +103,7 @@ lazy-load-selector
 prevent-action-when-running
 prevent-scroll-on-touch
 nav-options
+auto-width
 ````
 
 For more detailed information about the options, see the [Tiny-slider documentation (Options)](https://github.com/ganlanyuan/tiny-slider#options).

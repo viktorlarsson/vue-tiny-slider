@@ -195,7 +195,11 @@ var VueTinySlider = {
 		preventActionWhenRunning: {
 			type: Boolean,
 			default: false
-		},
+    },
+    autoWidth: {
+			type: Boolean,
+			default: false
+    },
 		preventScrollOnTouch: {
 			type: [String, Boolean],
 			default: false,
@@ -282,7 +286,8 @@ var VueTinySlider = {
 				center: this.center,
 				lazyLoadSelector: this.lazyLoadSelector,
 				preventActionWhenRunning: this.preventActionWhenRunning,
-				preventScrollOnTouch: this.preventScrollOnTouch
+        preventScrollOnTouch: this.preventScrollOnTouch,
+        autoWidth: this.autoWidth
 			}
 			removeUndefinedProps(settings);
 
