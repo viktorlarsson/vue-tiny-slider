@@ -143,7 +143,7 @@ For more detailed information about the methods, see the [Tiny-slider documentat
 
 2. In `nuxt.config.js` add 
 ``` js 
-plugins: [{ src: '~/plugins/vue-tiny-slider.js', ssr: false }],
+plugins: [{ src: '~/plugins/vue-tiny-slider.js', mode: 'client' }],
 ```
 
 3. Create the file `plugins/vue-tiny-slider.js` with this content
