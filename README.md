@@ -170,7 +170,7 @@ Now you should be able to use it in any component **without** any import, like t
        <div>#4</div>
        <div>#5</div>
        <div>#6</div>
-     </vue-tiny-slide>
+     </vue-tiny-slider>
 </no-ssr>
 ```
 
