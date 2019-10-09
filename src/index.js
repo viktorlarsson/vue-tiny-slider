@@ -18,7 +18,7 @@ var VueTinySlider = {
 		mode: {
 			type: [String],
 			default: 'carousel'
-    },
+		},
 		autoInit: {
 			type: [Boolean],
 			default: true
@@ -221,11 +221,11 @@ var VueTinySlider = {
 		preventActionWhenRunning: {
 			type: Boolean,
 			default: false
-    },
-    autoWidth: {
+		},
+		autoWidth: {
 			type: Boolean,
 			default: false
-    },
+		},
 		preventScrollOnTouch: {
 			type: [String, Boolean],
 			default: false,
@@ -321,8 +321,8 @@ var VueTinySlider = {
 				center: this.center,
 				lazyLoadSelector: this.lazyLoadSelector,
 				preventActionWhenRunning: this.preventActionWhenRunning,
-        preventScrollOnTouch: this.preventScrollOnTouch,
-        autoWidth: this.autoWidth,
+				preventScrollOnTouch: this.preventScrollOnTouch,
+				autoWidth: this.autoWidth,
 				useLocalStorage: this.useLocalStorage
 			};
 			removeUndefinedProps(settings);
