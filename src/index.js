@@ -15,7 +15,10 @@ var VueTinySlider = {
 		'dragEnd'
 	],
 	props: {
-		mode: [String],
+		mode: {
+			type: [String],
+			default: 'carousel'
+		},
 		autoInit: {
 			type: [Boolean],
 			default: true
@@ -42,6 +45,10 @@ var VueTinySlider = {
 			type: [String, Boolean, Number],
 			default: false
 		},
+		viewportMax: {
+			type: [String, Boolean, Number],
+			default: false
+		},
 		swipeAngle: {
 			type: [Boolean, Number],
 			default: 15
@@ -54,6 +61,13 @@ var VueTinySlider = {
 			type: [String, Boolean],
 			default: true
 		},
+		controlsPosition: {
+			type: [String],
+			validator: value => {
+				return value === 'top' || value === 'bottom';
+			},
+			default: 'top'
+		},
 		controlsText: {
 			type: [Array],
 			default: () => ['prev', 'next']
@@ -62,9 +76,17 @@ var VueTinySlider = {
 			type: [Boolean, Node, String],
 			default: false
 		},
+		prevButton: {
+			type: [Node, String, Boolean],
+			default: false
+		},
+		nextButton: {
+			type: [Node, String, Boolean],
+			default: false
+		},
 		nav: {
 			type: [Boolean],
-			default: false
+			default: true
 		},
 		navPosition: {
 			type: [String],
@@ -72,6 +94,10 @@ var VueTinySlider = {
 		},
 		navContainer: {
 			type: [Boolean, Node, String],
+			default: false
+		},
+		navAsThumbnails: {
+			type: [Boolean],
 			default: false
 		},
 		arrowKeys: {
@@ -195,17 +221,21 @@ var VueTinySlider = {
 		preventActionWhenRunning: {
 			type: Boolean,
 			default: false
-    },
-    autoWidth: {
+		},
+		autoWidth: {
 			type: Boolean,
 			default: false
-    },
+		},
 		preventScrollOnTouch: {
 			type: [String, Boolean],
 			default: false,
 			validator: value => {
 				return value === 'auto' || value === 'force' || value === false;
 			}
+		},
+		useLocalStorage: {
+			type: [Boolean],
+			default: true
 		}
 	},
 	mounted: function () {
@@ -249,13 +279,18 @@ var VueTinySlider = {
 				gutter: this.gutter,
 				edgePadding: this.edgePadding,
 				fixedWidth: !this.fixedWidth ? this.fixedWidth : parseInt(this.fixedWidth, 10),
+				viewportMax: this.viewportMax,
 				slideBy: this.slideBy,
 				controls: this.controls,
+				controlsPosition: this.controlsPosition,
 				controlsText: this.controlsText,
 				controlsContainer: this.controlsContainer,
+				prevButton: this.prevButton,
+				nextButton: this.nextButton,
 				nav: this.nav,
 				navPosition: this.navPosition,
 				navContainer: this.navContainer,
+				navAsThumbnails: this.navAsThumbnails,
 				arrowKeys: this.arrowKeys,
 				speed: this.speed,
 				autoplay: this.autoplay,
@@ -286,9 +321,10 @@ var VueTinySlider = {
 				center: this.center,
 				lazyLoadSelector: this.lazyLoadSelector,
 				preventActionWhenRunning: this.preventActionWhenRunning,
-        preventScrollOnTouch: this.preventScrollOnTouch,
-        autoWidth: this.autoWidth
-			}
+				preventScrollOnTouch: this.preventScrollOnTouch,
+				autoWidth: this.autoWidth,
+				useLocalStorage: this.useLocalStorage
+			};
 			removeUndefinedProps(settings);
 
 			this.slider = tns(settings);
