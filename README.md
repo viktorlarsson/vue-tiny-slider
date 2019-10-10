@@ -143,7 +143,7 @@ For more detailed information about the methods, see the [Tiny-slider documentat
 
 2. In `nuxt.config.js` add 
 ``` js 
-plugins: [{ src: '~/plugins/vue-tiny-slider.js', ssr: false }],
+plugins: [{ src: '~/plugins/vue-tiny-slider.js', mode: 'client' }],
 ```
 
 3. Create the file `plugins/vue-tiny-slider.js` with this content
@@ -170,7 +170,7 @@ Now you should be able to use it in any component **without** any import, like t
        <div>#4</div>
        <div>#5</div>
        <div>#6</div>
-     </vue-tiny-slide>
+     </vue-tiny-slider>
 </no-ssr>
 ```
 
