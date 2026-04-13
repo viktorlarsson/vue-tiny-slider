@@ -1,2 +1,6 @@
 node_modules/
 npm-debug.log
+# Demo debug screenshots — regenerated as needed.
+demo/*.png
+# Keep any npm auth tokens out of the tree.
+.npmrc

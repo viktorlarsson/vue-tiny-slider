@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>vue-tiny-slider — local demo</title>
+	<link rel="stylesheet" href="../node_modules/tiny-slider/dist/tiny-slider.css" />
+	<style>
+		body { margin: 0; background: #fafafa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #222; }
+		.wrapper { max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+		h1 { font-size: 1.4rem; margin-bottom: .25rem; }
+		.lede { color: #666; margin-top: 0; }
+		.slide {
+			height: 200px;
+			display: grid;
+			place-items: center;
+			background: linear-gradient(135deg, #667eea, #764ba2);
+			color: white;
+			font-size: 2rem;
+			border-radius: 8px;
+			user-select: none;
+		}
+		.slide:nth-child(2n) { background: linear-gradient(135deg, #f093fb, #f5576c); }
+		.slide:nth-child(3n) { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+		/* Breathing room between slider and controls/nav placed below it. */
+		.tns-controls, .tns-nav { margin-top: 1rem; }
+		.tns-controls button {
+			padding: .35rem .8rem;
+			margin-right: .25rem;
+			border: 1px solid #ccc;
+			background: white;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		.tns-controls button[disabled] { opacity: .4; cursor: default; }
+		.tns-nav { text-align: center; }
+		.tns-nav button {
+			width: 10px; height: 10px;
+			border-radius: 50%;
+			border: none;
+			background: #ccc;
+			margin: 0 4px;
+			padding: 0;
+			cursor: pointer;
+		}
+		.tns-nav button.tns-nav-active { background: #667eea; }
+	</style>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="module" src="./main.ts"></script>
+</body>
+</html>
