@@ -10,9 +10,15 @@ export default defineConfig({
 			formats: ['umd']
 		},
 		rollupOptions: {
-			external: ['vue'],
+			// Keep vue and tiny-slider as runtime externals. tiny-slider must
+			// not be inlined because it touches `document`/`window` at module
+			// eval time — see SSR notes in README.
+			external: ['vue', /^tiny-slider(\/|$)/],
 			output: {
-				globals: { vue: 'Vue' }
+				globals: {
+					vue: 'Vue',
+					'tiny-slider/src/tiny-slider': 'tns'
+				}
 			}
 		},
 		sourcemap: true

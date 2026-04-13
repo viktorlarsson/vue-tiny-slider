@@ -1,5 +1,8 @@
 import { h } from 'vue';
-import { tns } from 'tiny-slider/src/tiny-slider';
+
+// `Node` is a browser DOM global; fall back to Object on the server so that
+// defining the component doesn't throw during SSR module evaluation.
+var NodeType = typeof Node !== 'undefined' ? Node : Object;
 
 var VueTinySlider = {
 	eventsList: [
@@ -74,15 +77,15 @@ var VueTinySlider = {
 			default: () => ['prev', 'next']
 		},
 		controlsContainer: {
-			type: [Boolean, Node, String],
+			type: [Boolean, NodeType, String],
 			default: false
 		},
 		prevButton: {
-			type: [Node, String, Boolean],
+			type: [NodeType, String, Boolean],
 			default: false
 		},
 		nextButton: {
-			type: [Node, String, Boolean],
+			type: [NodeType, String, Boolean],
 			default: false
 		},
 		nav: {
@@ -94,7 +97,7 @@ var VueTinySlider = {
 			default: "top"
 		},
 		navContainer: {
-			type: [Boolean, Node, String],
+			type: [Boolean, NodeType, String],
 			default: false
 		},
 		navAsThumbnails: {
@@ -133,7 +136,7 @@ var VueTinySlider = {
 			default: false
 		},
 		autoplayButton: {
-			type: [Boolean, Node, String],
+			type: [Boolean, NodeType, String],
 			default: false,
 		},
 		autoplayButtonOutput: {
@@ -241,6 +244,8 @@ var VueTinySlider = {
 	},
 	mounted: function () {
 		if(this.autoInit) {
+			// init() is async (lazy-loads tiny-slider); swallow the returned
+			// promise — consumers who need ready-state should use @init event.
 			this.init();
 		}
 	},
@@ -271,7 +276,12 @@ var VueTinySlider = {
 		destroy: function() {
 			this.slider.destroy();
 		},
-		init: function() {
+		init: async function() {
+			// Lazy-import tiny-slider so the module's top-level `document` /
+			// `window` access never runs during SSR (mounted only fires on the
+			// client, so this import only happens client-side).
+			var { tns } = await import('tiny-slider/src/tiny-slider');
+
 			var settings = {
 				container: this.$el,
 				axis: this.axis,

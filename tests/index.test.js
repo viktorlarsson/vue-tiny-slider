@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { mount, flushPromises } from '@vue/test-utils';
 
 // Capture the mock so each test can inspect/drive it.
 const tnsMock = vi.fn();
@@ -21,13 +21,17 @@ function makeFakeSlider(overrides = {}) {
 	};
 }
 
-function mountSlider(props = {}, slots = undefined) {
-	return mount(VueTinySlider, {
+// init() is async (lazy-imports tiny-slider), so after mount we flush
+// microtasks before assertions that depend on the slider being ready.
+async function mountSlider(props = {}, slots = undefined) {
+	const wrapper = mount(VueTinySlider, {
 		props,
 		slots: slots ?? {
 			default: '<div class="s">A</div><div class="s">B</div>'
 		}
 	});
+	await flushPromises();
+	return wrapper;
 }
 
 beforeEach(() => {
@@ -35,31 +39,31 @@ beforeEach(() => {
 	tnsMock.mockImplementation(() => makeFakeSlider());
 });
 
-describe('VueTinySlider — Vue 2 baseline', () => {
-	it('renders default slot children into a <div>', () => {
-		const wrapper = mountSlider();
+describe('VueTinySlider', () => {
+	it('renders default slot children into a <div>', async () => {
+		const wrapper = await mountSlider();
 		expect(wrapper.element.tagName).toBe('DIV');
 		expect(wrapper.findAll('.s')).toHaveLength(2);
 	});
 
-	it('calls tns() on mount when autoInit is true (default)', () => {
-		mountSlider();
+	it('calls tns() on mount when autoInit is true (default)', async () => {
+		await mountSlider();
 		expect(tnsMock).toHaveBeenCalledTimes(1);
 	});
 
-	it('does NOT call tns() on mount when autoInit is false', () => {
-		mountSlider({ autoInit: false });
+	it('does NOT call tns() on mount when autoInit is false', async () => {
+		await mountSlider({ autoInit: false });
 		expect(tnsMock).not.toHaveBeenCalled();
 	});
 
-	it('passes the component root element as container', () => {
-		const wrapper = mountSlider();
+	it('passes the component root element as container', async () => {
+		const wrapper = await mountSlider();
 		const settings = tnsMock.mock.calls[0][0];
 		expect(settings.container).toBe(wrapper.element);
 	});
 
-	it('forwards key props to tns(), coercing items to int', () => {
-		mountSlider({ items: '3', mode: 'gallery', loop: false, mouseDrag: true });
+	it('forwards key props to tns(), coercing items to int', async () => {
+		await mountSlider({ items: '3', mode: 'gallery', loop: false, mouseDrag: true });
 		const settings = tnsMock.mock.calls[0][0];
 		expect(settings.items).toBe(3);
 		expect(settings.mode).toBe('gallery');
@@ -67,32 +71,32 @@ describe('VueTinySlider — Vue 2 baseline', () => {
 		expect(settings.mouseDrag).toBe(true);
 	});
 
-	it('fixedWidth passes through as false when falsy, or parsed int when set', () => {
-		mountSlider();
+	it('fixedWidth passes through as false when falsy, or parsed int when set', async () => {
+		await mountSlider();
 		expect(tnsMock.mock.calls[0][0].fixedWidth).toBe(false);
 
 		tnsMock.mockClear();
-		mountSlider({ fixedWidth: '250' });
+		await mountSlider({ fixedWidth: '250' });
 		expect(tnsMock.mock.calls[0][0].fixedWidth).toBe(250);
 	});
 
-	it('strips undefined props before calling tns()', () => {
+	it('strips undefined props before calling tns()', async () => {
 		// `axis` has no default, so it will be undefined unless set.
-		mountSlider();
+		await mountSlider();
 		const settings = tnsMock.mock.calls[0][0];
 		expect('axis' in settings).toBe(false);
 	});
 
-	it('emits init after tns() is created', () => {
-		const wrapper = mountSlider();
+	it('emits init after tns() is created', async () => {
+		const wrapper = await mountSlider();
 		expect(wrapper.emitted('init')).toBeTruthy();
 		expect(wrapper.emitted('init')).toHaveLength(1);
 	});
 
-	it('subscribes to every tiny-slider event in eventsList and re-emits them', () => {
+	it('subscribes to every tiny-slider event in eventsList and re-emits them', async () => {
 		const fake = makeFakeSlider();
 		tnsMock.mockImplementationOnce(() => fake);
-		const wrapper = mountSlider();
+		const wrapper = await mountSlider();
 
 		const expected = VueTinySlider.eventsList;
 		expect(fake.events.on).toHaveBeenCalledTimes(expected.length);
@@ -108,28 +112,28 @@ describe('VueTinySlider — Vue 2 baseline', () => {
 		expect(wrapper.emitted('indexChanged')[0]).toEqual([{ index: 4 }]);
 	});
 
-	it('goTo(value) delegates to the underlying slider', () => {
+	it('goTo(value) delegates to the underlying slider', async () => {
 		const fake = makeFakeSlider();
 		tnsMock.mockImplementationOnce(() => fake);
-		const wrapper = mountSlider();
+		const wrapper = await mountSlider();
 		wrapper.vm.goTo(2);
 		expect(fake.goTo).toHaveBeenCalledWith(2);
 	});
 
-	it('rebuild() replaces slider and emits rebuild', () => {
+	it('rebuild() replaces slider and emits rebuild', async () => {
 		const fake = makeFakeSlider();
 		tnsMock.mockImplementationOnce(() => fake);
-		const wrapper = mountSlider();
+		const wrapper = await mountSlider();
 		wrapper.vm.rebuild();
 		expect(fake.rebuild).toHaveBeenCalled();
 		expect(wrapper.emitted('rebuild')).toBeTruthy();
 	});
 
-	it('getInfo() emits getInfo with payload and slider', () => {
+	it('getInfo() emits getInfo with payload and slider', async () => {
 		const info = { index: 7 };
 		const fake = makeFakeSlider({ getInfo: vi.fn(() => info) });
 		tnsMock.mockImplementationOnce(() => fake);
-		const wrapper = mountSlider();
+		const wrapper = await mountSlider();
 		wrapper.vm.getInfo();
 		const emitted = wrapper.emitted('getInfo');
 		expect(emitted).toBeTruthy();
@@ -137,24 +141,24 @@ describe('VueTinySlider — Vue 2 baseline', () => {
 		expect(emitted[0][1]).toBe(fake);
 	});
 
-	it('destroy() calls slider.destroy', () => {
+	it('destroy() calls slider.destroy', async () => {
 		const fake = makeFakeSlider();
 		tnsMock.mockImplementationOnce(() => fake);
-		const wrapper = mountSlider();
+		const wrapper = await mountSlider();
 		wrapper.vm.destroy();
 		expect(fake.destroy).toHaveBeenCalled();
 	});
 
-	it('destroys the slider when the component is unmounted', () => {
+	it('destroys the slider when the component is unmounted', async () => {
 		const fake = makeFakeSlider();
 		tnsMock.mockImplementationOnce(() => fake);
-		const wrapper = mountSlider();
-		wrapper.unmount(); // test-utils v2 (Vue 3) API
+		const wrapper = await mountSlider();
+		wrapper.unmount();
 		expect(fake.destroy).toHaveBeenCalled();
 	});
 
-	it('controlsText default is [prev, next]', () => {
-		mountSlider();
+	it('controlsText default is [prev, next]', async () => {
+		await mountSlider();
 		expect(tnsMock.mock.calls[0][0].controlsText).toEqual(['prev', 'next']);
 	});
 });
