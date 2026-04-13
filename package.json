@@ -1,8 +1,9 @@
 {
   "name": "vue-tiny-slider",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Vanilla javascript slider for all purposes created by ganlanyuan in Vue.",
   "main": "./dist/index.js",
+  "types": "./src/index.d.ts",
   "files": [
     "dist",
     "src",
@@ -13,6 +14,7 @@
     "watch": "vite build --watch",
     "build": "vite build",
     "test": "vitest run",
+    "typecheck": "tsc",
     "demo": "bun --hot demo/index.html",
     "demo:build": "bun build demo/index.html --outdir=dist-demo --minify"
   },
@@ -40,6 +42,7 @@
     "@vitejs/plugin-vue": "^6.0.6",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.8.9",
+    "typescript": "^6.0.2",
     "vite": "^8.0.8",
     "vitest": "^4.1.4",
     "vue": "^3.5.32"
