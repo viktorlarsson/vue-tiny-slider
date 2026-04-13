@@ -1,6 +1,6 @@
 # tiny-slider 2.0 for Vue
 
-Wrapper for Tiny slider for all purposes by [ganlanyuan](https://github.com/ganlanyuan/tiny-slider) in Vue. [Try it out](https://codesandbox.io/s/7m9w30xjz6)!
+Wrapper for Tiny slider for all purposes by [ganlanyuan](https://github.com/ganlanyuan/tiny-slider) in Vue. [Live demo →](https://vue-tiny-slider-blush.vercel.app/)
 
 Firefox 12+, Chrome 15+, Safari 4+, Opera 12.1+, IE8+
 
