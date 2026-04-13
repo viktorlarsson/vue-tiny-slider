@@ -7,17 +7,27 @@ Firefox 12+, Chrome 15+, Safari 4+, Opera 12.1+, IE8+
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges) [![downloads](https://img.shields.io/npm/dt/vue-tiny-slider.svg)](https://github.com/badges/shields/) [![downloads per week](https://img.shields.io/npm/dw/vue-tiny-slider.svg)](https://github.com/badges/shields/) [![version badge](https://img.shields.io/npm/v/vue-tiny-slider.svg)](https://github.com/badges/shields/) 
 
 ## Table of Contents
+  * [Compatibility](#compatibility)
   * [Install](#install)
   * [Use](#use)
   * [Styling](#styling)
   * [Options](#options)
   * [Methods](#methods)
       * [How to use the methods](#how-to-use-the-methods)
-  * [NuxtJS SSR](#nuxtjs-ssr)
+  * [Nuxt 3 SSR](#nuxt-3-ssr)
   * [Todos](#todo)
   * [Collaborators](#collaborators)
   * [License](#license)
   * [Cheerios &lt;3](#cheerios-3)
+
+## Compatibility
+
+| `vue-tiny-slider` | Vue      |
+| ----------------- | -------- |
+| `^1.0.0`          | Vue 3.x  |
+| `^0.1.x`          | Vue 2.x  |
+
+If you're on Vue 2, pin to `vue-tiny-slider@^0.1`.
 
 ## Install
 
@@ -25,14 +35,26 @@ Firefox 12+, Chrome 15+, Safari 4+, Opera 12.1+, IE8+
 
 ## Use
 
+**Globally (Vue 3):**
+
+````javascript
+import { createApp } from 'vue';
+import VueTinySlider from 'vue-tiny-slider';
+import App from './App.vue';
+
+createApp(App)
+  .component('tiny-slider', VueTinySlider)
+  .mount('#app');
+````
+
+**Or locally inside a single component:**
+
 ````javascript
 import VueTinySlider from 'vue-tiny-slider';
 
-new Vue({
-  components: {
-    'tiny-slider': VueTinySlider
-  }
-})
+export default {
+  components: { 'tiny-slider': VueTinySlider }
+}
 ````
 
 ````html
@@ -137,44 +159,33 @@ export default {
 
 For more detailed information about the methods, see the [Tiny-slider documentation (Methods)](https://github.com/ganlanyuan/tiny-slider#methods).
 
-## NuxtJS SSR
+## Nuxt 3 SSR
 
-1. `yarn add vue-tiny-slider` or `npm install vue-tiny-slider`
+Tiny-slider touches the DOM, so the component must only render on the client.
 
-2. In `nuxt.config.js` add 
-``` js 
-plugins: [{ src: '~/plugins/vue-tiny-slider.js', mode: 'client' }],
-```
+1. `npm install vue-tiny-slider`
 
-3. Create the file `plugins/vue-tiny-slider.js` with this content
+2. Create `plugins/vue-tiny-slider.client.js` (the `.client` suffix makes it client-only):
 
 ```js
-import Vue from 'vue'
-import vTinySlider from 'vue-tiny-slider'
-const VueTinySlider = {
-  install(Vue, options) {
-    Vue.component('VueTinySlider', vTinySlider)
-  }
-}
-Vue.use(VueTinySlider)
+import VueTinySlider from 'vue-tiny-slider';
+
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.component('VueTinySlider', VueTinySlider);
+});
 ```
 
-Now you should be able to use it in any component **without** any import, like this:
+3. Wrap the slider in `<ClientOnly>` where you use it:
 
-```js
-<no-ssr>
- <vue-tiny-slider v-bind="tinySliderOptions">
-       <div>#1</div>
-       <div>#2</div>
-       <div>#3</div>
-       <div>#4</div>
-       <div>#5</div>
-       <div>#6</div>
-     </vue-tiny-slider>
-</no-ssr>
+```html
+<ClientOnly>
+  <vue-tiny-slider v-bind="tinySliderOptions">
+    <div>#1</div>
+    <div>#2</div>
+    <div>#3</div>
+  </vue-tiny-slider>
+</ClientOnly>
 ```
-
-A demo is available here: [https://codesandbox.io/s/jvjp349449](https://codesandbox.io/s/jvjp349449).
 
 
 ## Todo

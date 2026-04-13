@@ -1,3 +1,4 @@
+import { h } from 'vue';
 import { tns } from 'tiny-slider/src/tiny-slider';
 
 var VueTinySlider = {
@@ -243,7 +244,7 @@ var VueTinySlider = {
 			this.init();
 		}
 	},
-	beforeDestroy: function() {
+	beforeUnmount: function() {
 		if(this.slider) {
 			this.slider.destroy();
 		}
@@ -335,8 +336,8 @@ var VueTinySlider = {
 			this.$_vueTinySlider_subscribeToAll();
 		},
 	},
-	render: function(h){
-		return h('div', this.$slots.default);
+	render: function(){
+		return h('div', this.$slots.default ? this.$slots.default() : []);
 	}
 };
 
@@ -348,4 +349,4 @@ function removeUndefinedProps(obj) {
 	}
 }
 
-module.exports = VueTinySlider;
+export default VueTinySlider;
