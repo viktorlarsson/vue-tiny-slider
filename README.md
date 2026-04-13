@@ -2,7 +2,7 @@
 
 Wrapper for Tiny slider for all purposes by [ganlanyuan](https://github.com/ganlanyuan/tiny-slider) in Vue. [Live demo →](https://vue-tiny-slider-blush.vercel.app/)
 
-[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges) [![downloads](https://img.shields.io/npm/dt/vue-tiny-slider.svg)](https://github.com/badges/shields/) [![downloads per week](https://img.shields.io/npm/dw/vue-tiny-slider.svg)](https://github.com/badges/shields/) [![version badge](https://img.shields.io/npm/v/vue-tiny-slider.svg)](https://github.com/badges/shields/) 
+[![version](https://img.shields.io/npm/v/vue-tiny-slider.svg)](https://www.npmjs.com/package/vue-tiny-slider) [![downloads](https://img.shields.io/npm/dt/vue-tiny-slider.svg)](https://www.npmjs.com/package/vue-tiny-slider) [![downloads per week](https://img.shields.io/npm/dw/vue-tiny-slider.svg)](https://www.npmjs.com/package/vue-tiny-slider)
 
 ## Table of Contents
   * [Compatibility](#compatibility)
