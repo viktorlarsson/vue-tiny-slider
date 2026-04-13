@@ -280,7 +280,17 @@ var VueTinySlider = {
 			// Lazy-import tiny-slider so the module's top-level `document` /
 			// `window` access never runs during SSR (mounted only fires on the
 			// client, so this import only happens client-side).
-			var { tns } = await import('tiny-slider/src/tiny-slider');
+			//
+			// We import the pre-built `dist/tiny-slider.js` (single-file CJS
+			// bundle) rather than the raw `src/tiny-slider`. The ESM source
+			// exports an unbound `requestAnimationFrame` reference; modern
+			// bundlers turn the import into namespace-object access
+			// (`mod.raf(...)`) which sets `this = mod` and trips an
+			// "Illegal invocation" inside the browser API on every pan/drag.
+			// The CJS bundle keeps `raf(...)` as a bare call, so it works.
+			// The dist path is explicit because some bundlers (Bun) prefer
+			// the ESM `src/` even when `main` points at the dist bundle.
+			var { tns } = await import('tiny-slider/dist/tiny-slider.js');
 
 			var settings = {
 				container: this.$el,

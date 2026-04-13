@@ -17,7 +17,7 @@ export default defineConfig({
 			output: {
 				globals: {
 					vue: 'Vue',
-					'tiny-slider/src/tiny-slider': 'tns'
+					'tiny-slider': 'tns'
 				}
 			}
 		},

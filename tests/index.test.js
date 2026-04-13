@@ -4,7 +4,7 @@ import { mount, flushPromises } from '@vue/test-utils';
 // Capture the mock so each test can inspect/drive it.
 const tnsMock = vi.fn();
 
-vi.mock('tiny-slider/src/tiny-slider', () => ({
+vi.mock('tiny-slider/dist/tiny-slider.js', () => ({
 	tns: (...args) => tnsMock(...args)
 }));
 
