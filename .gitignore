@@ -2,5 +2,7 @@ node_modules/
 npm-debug.log
 # Demo debug screenshots — regenerated as needed.
 demo/*.png
+# Bun build output for the demo (deployed to Vercel).
+dist-demo/
 # Keep any npm auth tokens out of the tree.
 .npmrc

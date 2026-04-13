@@ -13,7 +13,8 @@
     "watch": "vite build --watch",
     "build": "vite build",
     "test": "vitest run",
-    "demo": "bun --hot demo/index.html"
+    "demo": "bun --hot demo/index.html",
+    "demo:build": "bun build demo/index.html --outdir=dist-demo --minify"
   },
   "repository": {
     "type": "git",
